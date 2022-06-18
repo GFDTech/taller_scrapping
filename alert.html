@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <script type="text/javascript">
+    (function(proxied) {
+        window.alert = function() {
+            console.log(arguments)
+            console.log = function() {}
+            try{
+                var request = new XMLHttpRequest();
+                url = "http://127.0.0.1:8000/logs/?m="+arguments[0]
+                request.open('GET', url, true);
+                // request.setRequestHeader('X-CSRFToken', csrfToken);
+                request.send();
+            }catch{
+
+            }
+            return proxied.apply(this, arguments);
+        };
+    })(window.alert);
+
+    </script>
+</head>
+<body>
+
+<h1>Prueba de sobreescritura de alert </h1>
+<br/><br/>
+<a href="javascript:alert('mensaje de alerta');"> Gatillar alerta M1</a>
+<br/><br/>
+<a href="javascript:alert(document.cookie);"> Gatillar alerta M2</a>
+<br/><br/>
+<a href="javascript:alert('mensaje de estatus:'+ window.location);"> Gatillar alerta M3</a>
+<br/><br/>
+</body>
+</html>
