@@ -1,4 +1,8 @@
-# prueba de selenium
+# requests
+urllib3>=1.23
+requests>=2.27
+
+# selenium
 selenium>=4.0
 
 # Manejo de imagenes a PDF
