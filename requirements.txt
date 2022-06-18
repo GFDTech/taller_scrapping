@@ -1,0 +1,5 @@
+# prueba de selenium
+selenium>=4.0
+
+# Manejo de imagenes a PDF
+Pillow>=9
