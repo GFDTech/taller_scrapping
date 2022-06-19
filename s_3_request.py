@@ -1,3 +1,5 @@
+import time
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -6,8 +8,11 @@ from selenium.webdriver.support import expected_conditions as EC
 wd = webdriver.Firefox()
 
 wd.get("https://www.paris.cl")
+time.sleep(20)
+wd.get_full_page_screenshot_as_file('paris_home.png')
 # wd.implicitly_wait(10)
 WebDriverWait(wd, 100000000).until(EC.presence_of_element_located((By.CLASS_NAME, 'cat-navbar'))).click()
+
 # menu = wd.find_element(By.ID, "GTM_header_navbar")
 # menu.click()
 
@@ -50,6 +55,11 @@ self.wd.switch_to.window(self.wd.window_handles[1])
  menu = self.wd.find_element(By.XPATH, "//div[@tab_id='a0']")
  tabla_datos = solicitadas.find_element(By.CLASS_NAME, 'obj')
  rows = tabla_datos.find_elements(By.TAG_NAME, 'tr')
+ 
+ wd.get_full_page_screenshot_as_base64()
+ 
+ 
+ 
              
 
 menu_ficha_demografica = self.wd.find_element(By.XPATH, "//div[@tab_id='a0']")                                     

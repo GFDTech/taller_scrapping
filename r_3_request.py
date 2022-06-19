@@ -2,7 +2,7 @@ import requests as rq
 
 # Crear web session
 wss = rq.Session()
-
+wss.headers['User-Agent'] = 'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0)'
 resp = wss.get("https://www.paris.cl")
 
 resp = wss.get("https://www.paris.cl/tecnologia/computadores/notebooks/")
